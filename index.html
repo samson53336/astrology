@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AstroGem Finder</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🔮 Find Your Astrological Gem 🔮</h1>
+
+    <form id="astroForm">
+      <label for="name">Enter Your Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="birthYear">Enter Your Birth Year (for Chinese zodiac):</label>
+      <input type="number" id="birthYear" min="1900" max="2025" />
+
+      <label for="system">Select Astrology System:</label>
+      <select id="system">
+        <option value="western">Western</option>
+        <option value="vedic">Vedic</option>
+        <option value="numerology">Numerology</option>
+        <option value="chinese">Chinese Zodiac</option>
+      </select>
+
+      <label for="intention">Choose Your Intention (optional):</label>
+      <select id="intention">
+        <option value="">--</option>
+        <option value="love">Love</option>
+        <option value="clarity">Clarity</option>
+        <option value="prosperity">Prosperity</option>
+        <option value="protection">Protection</option>
+      </select>
+
+      <button type="submit">Reveal My Lucky Stone</button>
+    </form>
+
+    <div id="loader" class="loader" style="display:none;">⏳ Calculating your results...</div>
+    <div id="result" class="result-box"></div>
+  </div>
+
+  <script type="module" src="scripts/app.js"></script>
+</body>
+</html>

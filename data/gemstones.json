@@ -1,0 +1,136 @@
+{
+  "Aries": {
+    "stone": "Carnelian",
+    "mantra": "Ignite the fire within."
+  },
+  "Taurus": {
+    "stone": "Emerald",
+    "mantra": "Grow steady like the earth."
+  },
+  "Gemini": {
+    "stone": "Citrine",
+    "mantra": "Speak your truth freely."
+  },
+  "Cancer": {
+    "stone": "Moonstone",
+    "mantra": "Feel deeply. Move gently."
+  },
+  "Leo": {
+    "stone": "Tiger’s Eye",
+    "mantra": "Shine with fearless warmth."
+  },
+  "Virgo": {
+    "stone": "Peridot",
+    "mantra": "Clarity flows through your actions."
+  },
+  "Libra": {
+    "stone": "Lapis Lazuli",
+    "mantra": "Balance is your birthright."
+  },
+  "Scorpio": {
+    "stone": "Obsidian",
+    "mantra": "Embrace transformation with grace."
+  },
+  "Sagittarius": {
+    "stone": "Topaz",
+    "mantra": "Your spirit was made to explore."
+  },
+  "Capricorn": {
+    "stone": "Garnet",
+    "mantra": "Build with quiet determination."
+  },
+  "Aquarius": {
+    "stone": "Amethyst",
+    "mantra": "Dream boldly. Think freely."
+  },
+  "Pisces": {
+    "stone": "Aquamarine",
+    "mantra": "Flow with the rhythm of your soul."
+  },
+
+
+  "Path 1": {
+    "sign": "Leader",
+    "stone": "Ruby",
+    "mantra": "Step boldly into your light.",
+    "icon": "path1.png",
+    "image": "ruby.jpg"
+  },
+  "Path 2": {
+    "sign": "Diplomat",
+    "stone": "Moonstone",
+    "mantra": "Balance and harmony guide you.",
+    "icon": "path2.png",
+    "image": "moonstone.jpg"
+  },
+  "Path 3": {
+    "sign": "Creative",
+    "stone": "Citrine",
+    "mantra": "Express your spirit freely.",
+    "icon": "path3.png",
+    "image": "citrine.jpg"
+  },
+  "Path 4": {
+    "sign": "Builder",
+    "stone": "Onyx",
+    "mantra": "Strength lies in structure.",
+    "icon": "path4.png",
+    "image": "onyx.jpg"
+  },
+  "Path 5": {
+    "sign": "Explorer",
+    "stone": "Turquoise",
+    "mantra": "Change leads to growth.",
+    "icon": "path5.png",
+    "image": "turquoise.jpg"
+  },
+  "Path 6": {
+    "sign": "Nurturer",
+    "stone": "Rose Quartz",
+    "mantra": "Love flows where you focus.",
+    "icon": "path6.png",
+    "image": "rose_quartz.jpg"
+  },
+  "Path 7": {
+    "sign": "Seeker",
+    "stone": "Amethyst",
+    "mantra": "Look inward and upward.",
+    "icon": "path7.png",
+    "image": "amethyst.jpg"
+  },
+  "Path 8": {
+    "sign": "Powerhouse",
+    "stone": "Garnet",
+    "mantra": "Manifest with purpose.",
+    "icon": "path8.png",
+    "image": "garnet.jpg"
+  },
+  "Path 9": {
+    "sign": "Healer",
+    "stone": "Labradorite",
+    "mantra": "Shine through compassion.",
+    "icon": "path9.png",
+    "image": "labradorite.jpg"
+  },
+  
+"Path 11": {
+  "sign": "Master Intuition",
+  "stone": "Celestite",
+  "mantra": "You carry light for the world.",
+  "image": "celestite.jpg"
+},
+"Path 22": {
+  "sign": "Master Builder",
+  "stone": "Bloodstone",
+  "mantra": "You are the architect of dreams.",
+  "image": "bloodstone.jpg"
+},
+"Path 33": {
+  "sign": "Master Teacher",
+  "stone": "Chrysoprase",
+  "mantra": "Your wisdom uplifts others.",
+  "image": "chrysoprase.jpg"
+}
+
+
+}

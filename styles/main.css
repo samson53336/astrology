@@ -1,0 +1,91 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #5e4b8b;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 1.5rem;
+  background-color: #5e4b8b;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #483275;
+}
+
+.result-box {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.fortune-card {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.mantra {
+  font-style: italic;
+  color: #5e4b8b;
+  margin-top: 1rem;
+}
+
+.print-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.gem-image {
+  max-width: 200px;
+  margin-top: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.loader {
+  text-align: center;
+  color: #777;
+  margin-top: 1rem;
+  font-style: italic;
+}
