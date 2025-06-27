@@ -83,3 +83,4 @@ document.getElementById("loader").style.display = "none";
 
   displayResult({ ...result, name, intention });
 });
+    
