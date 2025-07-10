@@ -1,5 +1,4 @@
 export function getVedicAstrology(name, dob, gemstoneMap = {}) {
-  // 1. Nakshatra from first letter of name
   const firstLetter = name.trim().charAt(0).toUpperCase();
 
   const nakshatraMap = {
@@ -14,7 +13,6 @@ export function getVedicAstrology(name, dob, gemstoneMap = {}) {
 
   const nakshatra = nakshatraMap[firstLetter] || "Revati";
 
-  // 2. Gemstone, mantra, image (some are defaults)
   const vedicGemMap = {
     "Ashwini": { stone: "Gomed", mantra: "Act with divine speed.", image: "gomed.jpg" },
     "Bharani": { stone: "Red Coral", mantra: "Transform with courage.", image: "red_coral.jpg" },
@@ -30,11 +28,10 @@ export function getVedicAstrology(name, dob, gemstoneMap = {}) {
     image: "clear_quartz.jpg"
   };
 
-  // 3. Sun Sign from DOB
+  // Sun sign logic
   function getSunSignFromDOB(dobString) {
-    const [dd, mm, yyyy] = dobString.split("/").map(Number);
-    const day = dd;
-    const month = mm;
+    const [dd, mm] = dobString.split("/").map(Number);
+    const day = dd, month = mm;
 
     const sunSigns = [
       { sign: "Capricorn", from: [12, 22], to: [1, 19] },
@@ -55,24 +52,80 @@ export function getVedicAstrology(name, dob, gemstoneMap = {}) {
       const [fromMonth, fromDay] = from;
       const [toMonth, toDay] = to;
 
-      if (
-        (month === fromMonth && day >= fromDay) ||
-        (month === toMonth && day <= toDay)
-      ) {
+      if ((month === fromMonth && day >= fromDay) || (month === toMonth && day <= toDay)) {
         return sign;
       }
     }
 
-    return "Capricorn"; // default fallback
+    return "Capricorn";
   }
 
   const sunSign = getSunSignFromDOB(dob || "01/01/2000");
 
+  // Simple planetary positions
+  const planets = [
+    { name: "Sun", degree: 106 },
+    { name: "Moon", degree: 225 },
+    { name: "Mars", degree: 355 },
+    { name: "Mercury", degree: 88 },
+    { name: "Jupiter", degree: 60 },
+    { name: "Venus", degree: 143 },
+    { name: "Saturn", degree: 297 },
+    { name: "Rahu", degree: 128 },
+    { name: "Ketu", degree: 308 }
+  ];
+
+  const zodiacSigns = [
+    "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+    "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+  ];
+
+  const houseSigns = [...zodiacSigns]; // Aries rising
+
+  const chart = planets.map(p => {
+    const signIndex = Math.floor(p.degree / 30);
+    const sign = zodiacSigns[signIndex];
+    const degree = p.degree % 30;
+    const houseIndex = houseSigns.indexOf(sign);
+    const house = houseIndex >= 0 ? houseIndex + 1 : "-";
+
+    return {
+      planet: p.name,
+      degree,
+      sign,
+      house
+    };
+  });
+
+  // Additional gemstone recommendations
+  const gemMap = {
+    Sun: "Ruby",
+    Moon: "Pearl",
+    Mars: "Red Coral",
+    Mercury: "Emerald",
+    Jupiter: "Yellow Sapphire",
+    Venus: "Diamond",
+    Saturn: "Blue Sapphire",
+    Rahu: "Hessonite (Gomed)",
+    Ketu: "Cat’s Eye"
+  };
+
+  const maleficHouses = [6, 8, 12];
+  const recommendations = chart
+    .filter(p => maleficHouses.includes(p.house))
+    .map(p => ({
+      planet: p.name,
+      gem: gemMap[p.name],
+      note: `Keep ${gemMap[p.name]} in your home to balance the energy of ${p.name} in house ${p.house}.`
+    }));
+
   return {
     sign: nakshatra,
-    sunSign: sunSign,
+    sunSign,
     stone: data.stone,
     mantra: data.mantra,
-    image: data.image
+    image: data.image,
+    chart,
+    recommendations // ✅ For gemstone suggestions
   };
 }

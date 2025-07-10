@@ -89,3 +89,21 @@ button:hover {
   margin-top: 1rem;
   font-style: italic;
 }
+.planet-chart table, .gem-recommendations ul {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+.planet-chart th, .planet-chart td {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+}
+
+.planet-chart th {
+  background: #f2f2f2;
+}
+
+.gem-recommendations li {
+  margin-bottom: 6px;
+}

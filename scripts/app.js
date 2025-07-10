@@ -38,6 +38,44 @@ function displayResult(data) {
       ${data.intention ? `<p><strong>For ${data.intention}:</strong> ${getIntentionAdvice(data.intention)}</p>` : ""}
       <p class="mantra">"${data.mantra}"</p>
       ${data.image ? `<img src="assets/images/gems/${data.image}" alt="${data.stone}" class="gem-image" />` : ""}
+      
+      ${data.chart ? `
+        <div class="planet-chart">
+          <h3>Planetary Positions</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Planet</th>
+                <th>Sign</th>
+                <th>Degree</th>
+                <th>House</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${data.chart.map(p => `
+                <tr>
+                  <td>${p.planet}</td>
+                  <td>${p.sign}</td>
+                  <td>${p.degree.toFixed(2)}°</td>
+                  <td>${p.house}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      ` : ""}
+
+      ${data.recommendations && data.recommendations.length > 0 ? `
+        <div class="gem-recommendations">
+          <h3>Additional Gemstone Suggestions for Home</h3>
+          <ul>
+            ${data.recommendations.map(r => `
+              <li><strong>${r.planet}:</strong> ${r.gem} — ${r.note}</li>
+            `).join("")}
+          </ul>
+        </div>
+      ` : ""}
+      
       <button onclick="window.print()" class="print-button">🖨️ Print or Save</button>
     </div>
   `;
@@ -71,6 +109,10 @@ document.getElementById("astroForm").addEventListener("submit", function (e) {
     case "vedic":
       result = getVedicAstrology(name, dob, gemstoneMap); // ✅ Pass dob
       break;
+      case "planetary":
+  result = getPlanetaryData(name, dob);
+  break;
+
     case "numerology":
       result = getNumerologyStone(name, gemstoneMap);
       break;
