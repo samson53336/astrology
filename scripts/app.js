@@ -32,7 +32,8 @@ function displayResult(data) {
   output.innerHTML = `
     <div class="fortune-card">
       <h2>Hello, ${data.name}!</h2>
-      <p><strong>Sign:</strong> ${data.sign}</p>
+      <p><strong>Nakshatra:</strong> ${data.sign}</p>
+      ${data.sunSign ? `<p><strong>Sun Sign:</strong> ${data.sunSign}</p>` : ""}
       <p><strong>Lucky Stone:</strong> ${data.stone}</p>
       ${data.intention ? `<p><strong>For ${data.intention}:</strong> ${getIntentionAdvice(data.intention)}</p>` : ""}
       <p class="mantra">"${data.mantra}"</p>
@@ -51,17 +52,15 @@ function displayResult(data) {
 document.getElementById("astroForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
-
   const name = document.getElementById("name").value.trim();
-  const dob = document.getElementById("dob").value.trim(); 
+  const dob = document.getElementById("dob").value.trim(); // 🆕 Added
   const system = document.getElementById("system").value;
   const intention = document.getElementById("intention").value;
 
-document.getElementById("loader").style.display = "none";
-const loader = document.getElementById("loader");
-if (loader && loader.style) {
-  loader.style.display = "none";
-}
+  const loader = document.getElementById("loader");
+  if (loader && loader.style) {
+    loader.style.display = "none";
+  }
 
   let result = {};
 
@@ -70,7 +69,7 @@ if (loader && loader.style) {
       result = getWesternAstrology(name, gemstoneMap);
       break;
     case "vedic":
-      result = getVedicAstrology(name, gemstoneMap);
+      result = getVedicAstrology(name, dob, gemstoneMap); // ✅ Pass dob
       break;
     case "numerology":
       result = getNumerologyStone(name, gemstoneMap);
@@ -79,9 +78,12 @@ if (loader && loader.style) {
       result = getChineseZodiac(name, gemstoneMap);
       break;
     default:
-      result = { sign: "Unknown", stone: "Mystery Crystal", mantra: "Trust the flow." };
+      result = {
+        sign: "Unknown",
+        stone: "Mystery Crystal",
+        mantra: "Trust the flow."
+      };
   }
-document.getElementById("loader").style.display = "none";
 
   displayResult({ ...result, name, intention });
 });

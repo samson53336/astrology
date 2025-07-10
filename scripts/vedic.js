@@ -1,4 +1,5 @@
 export function getVedicAstrology(name, dob, gemstoneMap = {}) {
+  // 1. Nakshatra from first letter of name
   const firstLetter = name.trim().charAt(0).toUpperCase();
 
   const nakshatraMap = {
@@ -13,6 +14,7 @@ export function getVedicAstrology(name, dob, gemstoneMap = {}) {
 
   const nakshatra = nakshatraMap[firstLetter] || "Revati";
 
+  // 2. Gemstone, mantra, image (some are defaults)
   const vedicGemMap = {
     "Ashwini": { stone: "Gomed", mantra: "Act with divine speed.", image: "gomed.jpg" },
     "Bharani": { stone: "Red Coral", mantra: "Transform with courage.", image: "red_coral.jpg" },
@@ -28,7 +30,7 @@ export function getVedicAstrology(name, dob, gemstoneMap = {}) {
     image: "clear_quartz.jpg"
   };
 
-  // Sun sign from DOB (dd/mm/yyyy)
+  // 3. Sun Sign from DOB
   function getSunSignFromDOB(dobString) {
     const [dd, mm, yyyy] = dobString.split("/").map(Number);
     const day = dd;
@@ -61,17 +63,16 @@ export function getVedicAstrology(name, dob, gemstoneMap = {}) {
       }
     }
 
-    return "Capricorn"; // Default
+    return "Capricorn"; // default fallback
   }
 
   const sunSign = getSunSignFromDOB(dob || "01/01/2000");
 
   return {
     sign: nakshatra,
+    sunSign: sunSign,
     stone: data.stone,
     mantra: data.mantra,
-    image: data.image,
-    sunSign: sunSign
+    image: data.image
   };
-  
 }
