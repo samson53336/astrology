@@ -51,7 +51,9 @@ function displayResult(data) {
 document.getElementById("astroForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
+
   const name = document.getElementById("name").value.trim();
+  const dob = document.getElementById("dob").value.trim(); 
   const system = document.getElementById("system").value;
   const intention = document.getElementById("intention").value;
 
@@ -83,4 +85,3 @@ document.getElementById("loader").style.display = "none";
 
   displayResult({ ...result, name, intention });
 });
-    
