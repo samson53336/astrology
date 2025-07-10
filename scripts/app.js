@@ -38,7 +38,7 @@ function displayResult(data) {
       ${data.intention ? `<p><strong>For ${data.intention}:</strong> ${getIntentionAdvice(data.intention)}</p>` : ""}
       <p class="mantra">"${data.mantra}"</p>
       ${data.image ? `<img src="assets/images/gems/${data.image}" alt="${data.stone}" class="gem-image" />` : ""}
-      
+
       ${data.chart ? `
         <div class="planet-chart">
           <h3>Planetary Positions</h3>
@@ -75,7 +75,7 @@ function displayResult(data) {
           </ul>
         </div>
       ` : ""}
-      
+
       <button onclick="window.print()" class="print-button">🖨️ Print or Save</button>
     </div>
   `;
@@ -91,7 +91,7 @@ document.getElementById("astroForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
   const name = document.getElementById("name").value.trim();
-  const dob = document.getElementById("dob").value.trim(); // 🆕 Added
+  const dob = document.getElementById("dob").value.trim();
   const system = document.getElementById("system").value;
   const intention = document.getElementById("intention").value;
 
@@ -107,12 +107,8 @@ document.getElementById("astroForm").addEventListener("submit", function (e) {
       result = getWesternAstrology(name, gemstoneMap);
       break;
     case "vedic":
-      result = getVedicAstrology(name, dob, gemstoneMap); // ✅ Pass dob
+      result = getVedicAstrology(name, dob, gemstoneMap);
       break;
-      case "planetary":
-  result = getPlanetaryData(name, dob);
-  break;
-
     case "numerology":
       result = getNumerologyStone(name, gemstoneMap);
       break;
