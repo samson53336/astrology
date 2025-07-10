@@ -12,4 +12,8 @@ This web app generates personalized astrological insights based on user data. Bu
 Clone the repo and open `index.html` in your browser.
 
 ## License
+<<<<<<< HEAD
 zoya gems and jeweller 
+=======
+MIT
+>>>>>>> 07ca42d91a513e121cac4c2a898af4e7484dee93
